@@ -18,17 +18,6 @@ const db_connection = mysql.createPool({
     database: dbConfig.APP_DB_NAME
 });
 
-Supplier.create = (newSupplier, result) => {
-    db_connection.query("INSERT INTO suppliers SET ?", newSupplier, (err, res) => {
-        if (err) {
-            console.log("error: ", err);
-            result(err, null);
-            return;
-        }
-        console.log("created supplier: ", {id: res.insertId, ...newSupplier});
-        result(null, {id: res.insertId, ...newSupplier});
-    });
-};
 
 Supplier.getAll = result => {
     db_connection.query("SELECT * FROM suppliers", (err, res) => {
@@ -59,52 +48,7 @@ Supplier.findById = (supplierId, result) => {
     });
 };
 
-Supplier.updateById = (id, supplier, result) => {
-    db_connection.query(
-        "UPDATE suppliers SET name = ?, city = ?, address = ?, email = ?, phone = ?, state = ? WHERE id = ?",
-        [supplier.name, supplier.city, supplier.address, supplier.email, supplier.phone, supplier.state, id],
-        (err, res) => {
-            if (err) {
-                console.log("error: ", err);
-                result(err, null);
-                return;
-            }
-            if (res.affectedRows === 0) {
-                result({kind: "not_found"}, null);
-                return;
-            }
-            console.log("updated supplier: ", {id: id, ...supplier});
-            result(null, {id: id, ...supplier});
-        }
-    );
-};
 
-Supplier.delete = (id, result) => {
-    db_connection.query("DELETE FROM suppliers WHERE id = ?", id, (err, res) => {
-        if (err) {
-            console.log("error: ", err);
-            result(err, null);
-            return;
-        }
-        if (res.affectedRows === 0) {
-            result({kind: "not_found"}, null);
-            return;
-        }
-        console.log("deleted supplier with id: ", id);
-        result(null, res);
-    });
-};
 
-Supplier.removeAll = result => {
-    db_connection.query("DELETE FROM suppliers", (err, res) => {
-        if (err) {
-            console.log("error: ", err);
-            result(err, null);
-            return;
-        }
-        console.log(`deleted ${res.affectedRows} suppliers`);
-        result(null, res);
-    });
-};
 
 module.exports = Supplier;

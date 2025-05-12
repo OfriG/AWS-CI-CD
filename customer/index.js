@@ -24,17 +24,17 @@ app.get("/", (req, res) => {
 });
 app.get("/suppliers/", supplier.findAll);
 // show the add suppler form
-app.get("/supplier-add", (req, res) => {
-    res.render("supplier-add", {});
-});
+//app.get("/supplier-add", (req, res) => {
+//    res.render("supplier-add", {});
+//});
 // receive the add supplier POST
-app.post("/supplier-add", supplier.create);
+//app.post("/supplier-add", supplier.create);
 // show the update form
-app.get("/supplier-update/:id", supplier.findOne);
+//.get("/supplier-update/:id", supplier.findOne);
 // receive the update POST
-app.post("/supplier-update", supplier.update);
+//app.post("/supplier-update", supplier.update);
 // receive the POST to delete a supplier
-app.post("/supplier-remove/:id", supplier.remove);
+//app.post("/supplier-remove/:id", supplier.remove);
 // handle 404
 app.use(function (req, res, next) {
     res.status(404).render("404", {});
@@ -42,7 +42,7 @@ app.use(function (req, res, next) {
 
 
 // set port, listen for requests
-const app_port = process.env.APP_PORT || 80
+const app_port = process.env.APP_PORT || 8080
 app.listen(app_port, () => {
     console.log(`Server is running on port ${app_port}.`);
 });
