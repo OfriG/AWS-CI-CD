@@ -22,7 +22,7 @@ exports.create = [
             Supplier.create(supplier, (err, data) => {
                 if (err)
                     res.render("500", {message: `Error occurred while creating the Supplier.`});
-                else res.redirect("/suppliers");
+                else res.redirect("/admin/suppliers");
             });
         }
     }
@@ -83,7 +83,7 @@ exports.update = [
                         } else {
                             res.render("500", {message: `Error updating Supplier with id ${req.body.id}`});
                         }
-                    } else res.redirect("/suppliers");
+                    } else res.redirect("/admin/suppliers");
                 }
             );
         }
@@ -100,7 +100,7 @@ exports.remove = (req, res) => {
             } else {
                 res.render("500", {message: `Could not delete Supplier with id ${req.body.id}`});
             }
-        } else res.redirect("/suppliers");
+        } else res.redirect("/admin/suppliers");
     });
 };
 
