@@ -7,3 +7,4 @@ Resources:
         LoadBalancerInfo:
           ContainerName: "customer"
           ContainerPort: 8080
+          
