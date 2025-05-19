@@ -1,10 +1,11 @@
 {
   "serviceName": "employee-microservice",
-  "taskDefinition": "employee-microservice:52",
+  "taskDefinition": "employee-microservice:63",
   "cluster": "microservices-serverlesscluster",
   "loadBalancers": [
     {
-      "targetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:516241962417:targetgroup/employee-tg-two/9d74309d5253ec54",
+      "targetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:516241962417:listener/app/microservicesLB/29acab5cd0d9e9a2/c7021788e545e143",
+     
       "containerName": "employee",
       "containerPort": 8080
     }
