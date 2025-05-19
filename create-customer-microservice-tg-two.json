@@ -1,5 +1,5 @@
 {
-  "taskDefinition": "customer-microservice:28",
+  "taskDefinition": "customer-microservice:31",
   "cluster": "microservices-serverlesscluster",
   "loadBalancers": [
     {
