@@ -1,5 +1,5 @@
 {
-  "taskDefinition": "customer-microservice:31",
+  "taskDefinition": "customer-microservice:48",
   "cluster": "microservices-serverlesscluster",
   "loadBalancers": [
     {
@@ -17,8 +17,8 @@
   "networkConfiguration": {
     "awsvpcConfiguration": {
       "subnets": [
-        "subnet-0894974209d0db415",
-        "subnet-03700ce4fb32b8ae3"
+        "subnet-03700ce4fb32b8ae3",
+        "subnet-0894974209d0db415"
       ],
       "securityGroups": [
         "sg-0fa3b20581135835e"
