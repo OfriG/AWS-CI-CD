@@ -2,6 +2,8 @@
 
 ## Group Details
 **Group Name:** 2 
+
+
 **Members:**  
 - Adi Dagan – 318792579  
 - Ofri Gross – 322542820  
