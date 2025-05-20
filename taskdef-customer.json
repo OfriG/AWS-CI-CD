@@ -1,52 +1,39 @@
 {
-    "containerDefinitions": [
+  "containerDefinitions": [
+    {
+      "name": "customer",
+"image": "<IMAGE1_NAME>",
+      "environment": [
         {
-            "name": "customer",
-            "image": "<IMAGE1_NAME>",
-            "cpu": 0,
-            "portMappings": [
-                {
-                    "containerPort": 8080,
-                    "hostPort": 8080,
-                    "protocol": "tcp"
-                }
-            ],
-            "essential": true,
-            "environment": [
-                {
-                    "name": "APP_DB_HOST",
-                    "value": "supplierdb.cdy7cadsuyhy.us-east-1.rds.amazonaws.com"
-                },
-                {
-                    "name": "APP_DB_USER",
-                    "value": "admin"
-                },
-                {
-                    "name": "APP_DB_PASSWORD",
-                    "value": "lab-password"
-                }
-            ],
-            "mountPoints": [],
-            "volumesFrom": [],
-            "logConfiguration": {
-                "logDriver": "awslogs",
-                "options": {
-                    "awslogs-group": "awslogs-capstone",
-                    "awslogs-create-group": "true",
-                    "awslogs-region": "us-east-1",
-                    "awslogs-stream-prefix": "awslogs-capstone"
-                }
-            },
-            "systemControls": []
+          "name": "APP_DB_HOST",
+          "value": "supplierdb.cdy7cadsuyhy.us-east-1.rds.amazonaws.com"
         }
-    ],
-    "family": "customer-microservice",
-    "executionRoleArn": "arn:aws:iam::516241962417:role/PipelineRole",
-    "networkMode": "awsvpc",
-    "volumes": [],
-    "requiresCompatibilities": [
-        "FARGATE"
-    ],
-    "cpu": "512",
-    "memory": "1024"
+      ],
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 8080,
+          "protocol": "tcp",
+          "containerPort": 8080
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-create-group": "true",
+          "awslogs-group": "awslogs-capstone",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "awslogs-capstone"
+        }
+      }
+    }
+  ],
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "networkMode": "awsvpc",
+  "cpu": "512",
+  "memory": "1024",
+  "executionRoleArn": "arn:aws:iam::516241962417:role/PipelineRole",
+  "family": "customer-microservice"
 }

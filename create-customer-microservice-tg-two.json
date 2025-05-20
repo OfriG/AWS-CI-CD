@@ -1,4 +1,5 @@
 {
+  "serviceName": "customer-microservice",
   "taskDefinition": "customer-microservice:48",
   "cluster": "microservices-serverlesscluster",
   "loadBalancers": [
