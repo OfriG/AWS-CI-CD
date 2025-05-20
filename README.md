@@ -31,5 +31,3 @@ Make sure the following are set up before deploying:
 - AWS Cloud9 environment ready  
 - Required ECR repositories and ECS cluster created
 
-## Deployment Instructions
-Please see the `install_instructions.txt` file for detailed setup and deployment steps using AWS Cloud9.
